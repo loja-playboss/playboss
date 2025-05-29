@@ -1,0 +1,127 @@
+// Arquivo: PlaybossSite.jsx
+
+import { Button } from "@/components/ui/button";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { SiShopee } from "react-icons/si";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { motion } from "framer-motion";
+import { useEffect } from "react";
+
+export default function PlaybossSite() {
+  useEffect(() => {
+    document.body.style.background = "#000000";
+    document.body.style.backgroundSize = "initial";
+    document.body.style.animation = "none";
+  }, []);
+
+  return (
+    <div className="min-h-screen text-white font-sans overflow-hidden relative">
+      {/* Efeito de partículas (simples usando CSS) */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(circle,_#ffffff22_1px,_transparent_1px)] bg-[size:20px_20px] animate-fade" />
+
+      {/* Conteúdo principal */}
+      <div className="relative z-10">
+        <header className="flex flex-col items-center py-6 border-b border-gray-800">
+          <motion.img
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            src="/playboss.jpg"
+            alt="Playboss Logo"
+            className="h-24"
+          />
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 1 }}
+            className="text-yellow-500 text-xl mt-4 text-center px-4 max-w-xl"
+          >
+            Chegou o estilo de quem comanda. Seja bem vindo à <span className="font-bold">PLAYBOSS</span>
+          </motion.p>
+        </header>
+
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.5 }}
+          className="my-8 px-4 max-w-4xl mx-auto"
+        >
+          <Carousel
+            showThumbs={false}
+            autoPlay
+            infiniteLoop
+            showStatus={false}
+            className="rounded-2xl overflow-hidden shadow-xl"
+          >
+            <div>
+              <img src="/uploads/PHOTO-2025-05-29-09-38-09.jpeg" alt="Foto 1" className="object-cover h-[400px] w-full" />
+            </div>
+            <div>
+              <img src="/uploads/IMG_1255.jpeg" alt="Foto 2" className="object-cover h-[400px] w-full" />
+            </div>
+            <div>
+              <img src="/uploads/ff18567a-a954-41f5-b521-4591ab6f1ef2.jpeg" alt="Foto 3" className="object-cover h-[400px] w-full" />
+            </div>
+            <div>
+              <img src="/uploads/ChatGPT Image Apr 29, 2025 at 03_30_55 PM.png" alt="Foto 4" className="object-cover h-[400px] w-full" />
+            </div>
+            <div>
+              <video
+                src="/uploads/VIDEO-2025-05-29-09-37-48.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="object-cover h-[400px] w-full"
+              />
+            </div>
+            <div>
+              <video
+                src="/uploads/IMG_1187.mov"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="object-cover h-[400px] w-full"
+              />
+            </div>
+          </Carousel>
+        </motion.section>
+
+        {/* Botões */}
+        <section className="flex justify-center gap-4 mt-8 flex-wrap px-4">
+          <a href="https://www.facebook.com/profile.php?id=61576887928713" target="_blank">
+            <Button className="bg-[#3b5998] hover:shadow-[0_0_12px_#3b5998] text-white text-lg px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 transition-all duration-300">
+              <FaFacebook size={24} /> Facebook
+            </Button>
+          </a>
+          <a href="https://www.instagram.com/loja.playboss?igsh=bGZxY3hmbmNsMWtk&utm_source=qr" target="_blank">
+            <Button className="bg-gradient-to-r from-pink-500 to-yellow-500 hover:shadow-[0_0_12px_#ff00c8] text-white text-lg px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 transition-all duration-300">
+              <FaInstagram size={24} /> Instagram
+            </Button>
+          </a>
+          <a href="https://www.shopee.com.br/p6cld51nc4" target="_blank">
+            <Button className="bg-orange-500 hover:shadow-[0_0_12px_#ffa500] text-white text-lg px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 transition-all duration-300">
+              <SiShopee size={24} /> Shopee
+            </Button>
+          </a>
+          <a href="https://wa.me/5522997373412" target="_blank">
+            <Button className="bg-green-500 hover:shadow-[0_0_12px_#25D366] text-white text-lg px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2 transition-all duration-300">
+              <FaWhatsapp size={24} /> WhatsApp
+            </Button>
+          </a>
+        </section>
+
+        {/* Rodapé */}
+        <footer className="text-center text-sm text-gray-200 mt-12 mb-4">
+          <a href="https://wa.me/5522997373412" className="text-green-400 hover:underline" target="_blank">
+            (22) 99737-3412
+          </a>
+          <br />
+          © {new Date().getFullYear()} PLAYBOSS. Todos os direitos reservados.
+        </footer>
+      </div>
+    </div>
+  );
+}
